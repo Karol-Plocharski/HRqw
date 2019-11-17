@@ -7,17 +7,7 @@ public class EmployeeDto {
     private String surname;
     private String occupation;
     private Date date;
-    public DepartmentDto getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(DepartmentDto department) {
-        this.department = department;
-    }
-
     private DepartmentDto department;
-
-    private int numberOfExperience;
 
     public String getName() {
         return name;
@@ -43,12 +33,19 @@ public class EmployeeDto {
         this.occupation = occupation;
     }
 
-    public Date getDane() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDane(Date dane) {
-        this.date = dane;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
+    public DepartmentDto getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(DepartmentDto department) {
+        this.department = department;
+    }
 }
