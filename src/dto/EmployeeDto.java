@@ -9,6 +9,13 @@ public class EmployeeDto {
     private Date date;
     private DepartmentDto department;
 
+    public EmployeeDto (String name, String surname, String occupation, Date date) {
+        this.name = name;
+        this.surname = surname;
+        this.occupation = occupation;
+        this.date = date;
+    }
+
     public String getName() {
         return name;
     }

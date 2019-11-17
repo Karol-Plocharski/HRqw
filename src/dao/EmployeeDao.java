@@ -1,43 +1,59 @@
 package dao;
 
+import dto.EmployeeDto;
+
+//import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeDao {
-    public class employee {
 
-        public List<EmployeeDao> setData() {
+
+        public List<EmployeeDto> setData() throws ParseException {
             String decision = "T";
-            List<EmployeeDao> employees = new ArrayList<EmployeeDao>();
+            String dateFormat = "dd/MM/yyyy";
+            List<EmployeeDto> employees = new ArrayList<EmployeeDto>();
             Scanner input = new Scanner(System.in);
             while (decision.equals("T")) {
 
-                System.out.println("Podaj imię");
+                System.out.println("Name");
                 String name = input.nextLine();
 
-                System.out.println("Podaj nazwisko");
+                System.out.println("Surname");
                 String surname = input.nextLine();
 
-                System.out.println("Poziom zaawansowania");
+                System.out.println("Occupation");
                 String occupation = input.nextLine();
-                //dodajemy nowego studenta do listy na podstawie wpisanych danych
-                employees.add(new EmployeeDao(name, surname, occupation));
 
-                System.out.println("Czy chcesz podawać dalej T/N");
+                System.out.println("Date of arrive " + " dd/MM/yyyy");
+
+                //DateFormat formatter = new SimpleDateFormat("EEEE dd MMM yyyy");
+                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(input.nextLine());
+                //Date date = formatter.parse(dateString);
+                //System.out.println(date);
+                //sale.setDate(input.next());
+
+                //dodajemy nowego studenta do listy na podstawie wpisanych danych
+                employees.add(new EmployeeDto(name, surname, occupation, date));
+
+                System.out.println("Create new employee");
                 decision = input.nextLine();
             }
             return employees;
         }
 
-        public void displayData(List<StudentDto> students) {
-            for (StudentDto student:students){
-                //pobieramy index studenta dla listy students
-                System.out.print("|"+(students.indexOf(student)+1)+"|");
-                System.out.print("|"+student.getName()+"|");
-                System.out.print("|"+student.getSurname()+"|");
-                System.out.print("|"+student.getClassNo()+"|");
+        public void displayData(List<EmployeeDto> employees) {
+            for (EmployeeDto employee:employees){
+                System.out.print( employee.getName() + " ");
+                System.out.print( employee.getSurname() + " ");
+                System.out.print( employee.getOccupation() + " ");
+                System.out.print( new SimpleDateFormat("dd/MM/yyyy").format(employee.getDate()));
                 System.out.println();
-            }
+
         }
     }
 }

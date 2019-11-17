@@ -1,5 +1,8 @@
 package dao;
 
+import dto.DepartmentDto;
+import dto.EmployeeDto;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,9 +11,9 @@ public class DepartmentDao {
     public DepartmentDao (String shortname, String fullname) {
     }
 
-    public List<DepartmentDao> setData() {
+    public List<DepartmentDao> setData () {
         String decision = "T";
-        List<DepartmentDao> department = new ArrayList<DepartmentDao>();
+        List<DepartmentDao> departments = new ArrayList<DepartmentDao>();
         Scanner input = new Scanner(System.in);
         while (decision.equals("T")) {
 
@@ -23,13 +26,20 @@ public class DepartmentDao {
             System.out.println("Finance");
             String fullname = input.nextLine();
 
-            department.add(new DepartmentDao(shortname, fullname));
+            departments.add(new DepartmentDao(shortname, fullname));
 
             System.out.println("Podaj kolejnego pracownika");
             decision = input.nextLine();
         }
-        return department ;
+        return departments;
 
     }
-}
+
+    public void displayData (List<DepartmentDto> departments) {
+        for (DepartmentDto department : departments) {
+            System.out.print(department.getShortname());
+            System.out.print(department.getFullname());
+
+        }
+    }
 }
