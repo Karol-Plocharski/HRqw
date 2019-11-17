@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class App {
     public void run() {
         Scanner input = new Scanner(System.in);
-        System.out.println("HR App");
+        System.out.println("|| *Human Resources Application* ||");
         boolean isValueOK = false;
         while (!isValueOK) {
-            System.out.println("1. Stwórz pracownika");
-            System.out.println("2. Wyszukaj pracownika");
+            System.out.println("1. Create an employee");
+            System.out.println("2. Search for an employee");
             String value = input.nextLine();
             //zmiana stringa w inta
             if (Integer.parseInt(value) == 1) {
@@ -29,9 +29,8 @@ public class App {
                 //new DepartmentDao().displayData(department);
                 isValueOK = true;
             } else {
-                System.out.println("Podaj Liczbe z zakresu 1-2");
+                System.out.println("Enter a number between 1-2");
             }
-
         }
     }
 }
