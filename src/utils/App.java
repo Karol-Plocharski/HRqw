@@ -1,6 +1,8 @@
 package utils;
 
+import dao.DepartmentDao;
 import dao.EmployeeDao;
+import dto.DepartmentDto;
 import dto.EmployeeDto;
 
 import java.text.ParseException;
@@ -20,17 +22,15 @@ public class App {
             if (Integer.parseInt(value) == 1) {
                 //Ustawiamy Dane
                 List<EmployeeDto> employee = new EmployeeDao().setData();
+                List<DepartmentDto> departments = new DepartmentDao().setData();
                 //Wyswietlamy dane
                 new EmployeeDao().displayData(employee);
+                new DepartmentDao().displayData(departments);
                 isValueOK = true;
-//            } else if (Integer.parseInt(value) == 2) {
-//                List<DepartmentDto> department = new DepartmentDao().setData();
-//                new DepartmentDao().displayData(department);
-//                isValueOK = true;
             } else {
+                System.out.println();
                 System.out.println("Podaj Liczbe z zakresu 1-2");
             }
-
+        }
         }
     }
-}

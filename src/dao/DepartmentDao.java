@@ -1,45 +1,39 @@
 package dao;
 
 import dto.DepartmentDto;
-import dto.EmployeeDto;
-
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class DepartmentDao {
-    public DepartmentDao (String shortname, String fullname) {
-    }
 
-    public List<DepartmentDao> setData () {
-        String decision = "T";
-        List<DepartmentDao> departments = new ArrayList<DepartmentDao>();
+    public List<DepartmentDto> setData () throws ParseException {
+
+        List<DepartmentDto> departments = new ArrayList<DepartmentDto>();
         Scanner input = new Scanner(System.in);
-        while (decision.equals("T")) {
+        System.out.println(" Department:  HR | IT | FN");
 
-            System.out.println("HR");
-            System.out.println("IT");
-            System.out.println("FN");
-            String shortname = input.nextLine();
-            System.out.println("Human Resourcec");
-            System.out.println("Information Technology");
-            System.out.println("Finance");
-            String fullname = input.nextLine();
+        String HR = input.nextLine();
+        String IT = input.nextLine();
+        String FN = input.nextLine();
 
-            departments.add(new DepartmentDao(shortname, fullname));
 
-            System.out.println("Podaj kolejnego pracownika");
-            decision = input.nextLine();
+        departments.add(new DepartmentDto(HR, IT, FN));
+
+        {
+            return departments;
         }
-        return departments;
-
     }
+
 
     public void displayData (List<DepartmentDto> departments) {
-        for (DepartmentDto department : departments) {
-            System.out.print(department.getShortname());
-            System.out.print(department.getFullname());
+      for (DepartmentDto department : departments) {
+
+              System.out.print(department.getHR());
+              System.out.print(department.getIT());
+            System.out.print(department.getFN());
 
         }
     }
-}
+    }
