@@ -1,23 +1,32 @@
 package dto;
 
+import java.util.Date;
+
 public class DepartmentDto {
 
-    private String shortname;
-    private String fullname;
+    private String HR;
+    private String IT;
+    private String FN;
 
-    public String getShortname() {
-        return shortname;
+
+    public DepartmentDto (String HR, String IT, String FN) {
+        this.HR = "Human Resourcec";
+        this.IT = "Information Technology";
+        this.FN = "Finance";
+
+
     }
 
-    public void setShortname(String shortname) {
-        this.shortname = shortname;
+    public String getHR () {
+        return HR;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getIT () {
+        return IT;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public String getFN () {
+        return FN;
     }
+
 }
